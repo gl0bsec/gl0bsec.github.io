@@ -13,7 +13,7 @@ layout: default
 
 ## Journals amd Magazines 
 - [logic mag](https://logicmag.io)
-- [Simularcrum][https://www.simulacrum.nl]
+- [Simularcrum](https://www.simulacrum.nl)
 - [Linseed](https://www.linseedjournal.com)
 
 ## Technology 
