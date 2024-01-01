@@ -8,7 +8,7 @@ You can find sites for my personal projects and those [School of Politics and In
 -- Shiva 
 
 ### Personal 
-- **Interesting websites** 
+- [**Interesting websites**](gl0bsec.github.io/fun_websites)
 - **Works in progress** 
 
 ### GSI 
