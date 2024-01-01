@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Useful or Interesting resources from around the internet! 
 ---
 # Useful or Interesting resources from around the internet! 
 
@@ -27,9 +28,6 @@ layout: default
 - [Citizen Lab](https://citizenlab.ca)
 - [Cyberwar.nl](https://cyberwar.nl)
 
----
-layout: default
----
 ## Climate
 - [ebird.org](https://ebird.org)
 - [Antartikos](https://www.antarktikos.com/)
