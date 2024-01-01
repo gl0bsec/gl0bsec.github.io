@@ -5,7 +5,7 @@ layout: default
 
 ## Research
 - [The Maintainers](https://themaintainers.org/about/)
-- [Cailin O'Connor][https://cailinoconnor.com/the-misinformation-age/]
+- [Cailin O'Connor](https://cailinoconnor.com/the-misinformation-age/)
 - [The Syllabus](https://www.the-syllabus.com/)
 - [KNOCKvologan](https://www.antarktikos.com/)
 - [translated literature database](https://www.rochester.edu/college/translation/threepercent/)
