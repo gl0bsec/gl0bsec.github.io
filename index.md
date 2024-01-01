@@ -12,7 +12,7 @@ You can find sites for my personal projects and those [School of Politics and In
 - [Works in progress](https://github.com/gl0bsec/Documents/blob/main/pages/)
 
 ### GSI 
-- TBA!
+TBA!
 
 ### SPIR
-- TBA!
+TBA!
