@@ -9,7 +9,7 @@ You can find sites for my personal projects and those [School of Politics and In
 
 ### Personal 
 - [Interesting websites](fun_websites.md)
-- [Works in progress](https://github.com/gl0bsec/Documents/blob/main/pages/)
+- [Works in progress](https://gl0bsec.github.io/Documents/pages/)
 
 ### GSI 
 TBA!
