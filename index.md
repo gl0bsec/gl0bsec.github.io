@@ -10,10 +10,9 @@ You can find sites for my personal projects and those [School of Politics and In
 ### Personal 
 - **Interesting websites** 
 - **Works in progress** 
---- 
+
 ### GSI 
 - **TBA!** 
---- 
+
 ### SPIR
 - **TBA!**
---- 
