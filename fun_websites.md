@@ -41,4 +41,4 @@ layout: default
 ## Hobbies/Adventure 
 - [Greg McChaon](https://www.gregm.cc/)
 
-Authors: me and [holly][hollyz1jderveld.github.io]
+Authors: me and [holly](hollyz1jderveld.github.io)
