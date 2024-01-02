@@ -12,8 +12,5 @@ You can find sites for my personal projects and those [School of Politics and In
 - [Interesting websites](fun_websites.md)
 - [Works in progress](https://gl0bsec.github.io/Documents/pages/)
 
-### GSI 
-TBA!
-
-### SPIR
+### GSI and SPIR 
 TBA!
