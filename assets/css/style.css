@@ -1,8 +1,9 @@
-/* @import "{{ minima }}"; */
+@import "{{ minima }}";
 
 body {
     background-color: #ffe9a8; /* Replace #ADD8E6 with your desired color code */
     font-family: 'Courier New', monospace;
+    font-size: 16pt;
 
 }
 
