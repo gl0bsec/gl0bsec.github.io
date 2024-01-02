@@ -11,6 +11,18 @@ body {
 
 }
 
+@media only screen and (min-width: 481px) {
+    body {
+        background-color: #ffe9a8; /* Replace #ADD8E6 with your desired color code */
+        font-family: 'Courier New', monospace;
+        font-size: 16pt;
+        max-width: 700px;
+        padding-top: 24px;
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+  }
+
 h1 {
     color: #f3657a; /* Pastel Pink */
 }
