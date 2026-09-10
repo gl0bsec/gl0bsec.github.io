@@ -1,0 +1,15 @@
+---
+layout: feed
+title: Projects
+description: Things built in public.
+permalink: /projects/
+---
+
+{% assign projects = site.projects | sort: 'order' %}
+<ul class="card-grid">
+  {% for project in projects %}
+    {% include project-card.html project=project %}
+  {% else %}
+    <li><p>Nothing here yet.</p></li>
+  {% endfor %}
+</ul>

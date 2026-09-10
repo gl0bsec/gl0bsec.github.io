@@ -1,0 +1,72 @@
+title: gl0bsec
+tagline: Site for public projects
+description: >-
+  Public projects, docs, and experiments.
+author: gl0bsec
+
+url: "https://gl0bsec.github.io"
+baseurl: ""
+
+# --- Build -------------------------------------------------------------
+
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:year/:month/:slug/
+timezone: Etc/UTC
+strict_front_matter: true
+
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# The front end is built by esbuild (see esbuild.config.mjs); Jekyll only ever
+# sees the compiled output in assets/ plus the manifest in _data/.
+exclude:
+  - esbuild.config.mjs
+  - package.json
+  - package-lock.json
+  - node_modules
+  - src
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - LICENSE
+
+# --- Content -----------------------------------------------------------
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values:
+      layout: post
+  - scope: { path: "", type: "projects" }
+    values:
+      layout: project
+  - scope: { path: "" }
+    values:
+      layout: page
+
+# --- Navigation --------------------------------------------------------
+
+nav:
+  - title: Projects
+    url: /projects/
+  - title: Posts
+    url: /posts/
+  - title: About
+    url: /about/
+
+social:
+  github: gl0bsec

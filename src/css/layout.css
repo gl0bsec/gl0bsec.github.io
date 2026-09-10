@@ -1,0 +1,59 @@
+.wrap {
+  width: min(100% - var(--gutter) * 2, var(--measure));
+  margin-inline: auto;
+}
+.wrap--wide { width: min(100% - var(--gutter) * 2, 1100px); }
+
+.site-header {
+  /* No bottom border — the shadow alone separates it from the page. */
+  box-shadow: var(--shadow-bar);
+  padding-block: 0.86rem;
+  /* Lift it over the hero so the shadow lands on top of the globe. */
+  position: relative;
+  z-index: 1;
+}
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+.site-title {
+  font-family: var(--font-display);
+  font-weight: 400; /* Jersey 10 is single-weight; 650 would synthesise a bold. */
+  /* 40px at the default root size. In rem rather than px so the wordmark still
+     responds if the visitor has raised their browser's base font size. */
+  font-size: 2.5rem;
+  line-height: 1.2; /* Not body's 1.65 — that is paragraph leading on a logotype. */
+  color: inherit;
+  text-decoration: none;
+  margin-right: auto;
+}
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: var(--step--1);
+}
+.site-nav a { color: var(--ink-muted); text-decoration: none; }
+.site-nav a:hover,
+.site-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; }
+
+/* Asymmetric on purpose: the top was stacking with the hero's own padding and
+   pushing everything down the page. The 0.85rem cap sets the gap under the bar,
+   measured including the title's own offset inside the hero: 0.75rem gave
+   39.4px, and two 2% steps take it to 41.0px. */
+main { flex: 1; padding-block: clamp(0.5rem, 1.5vw, 0.85rem) clamp(2rem, 6vw, 4rem); }
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding-block: 2rem;
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+}
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}

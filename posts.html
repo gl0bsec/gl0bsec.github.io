@@ -1,0 +1,13 @@
+---
+title: Posts
+description: Notes and write-ups.
+permalink: /posts/
+---
+
+<ul class="post-list">
+  {% for post in site.posts %}
+    {% include post-card.html post=post %}
+  {% else %}
+    <li><p>No posts yet.</p></li>
+  {% endfor %}
+</ul>

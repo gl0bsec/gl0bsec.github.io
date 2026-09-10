@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbf1c7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d2021" media="(prefers-color-scheme: dark)">
+
+{%- seo -%}
+
+<link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+
+{%- comment -%}
+Set the stored theme before first paint so a dark-mode visitor never sees a
+white flash. Kept inline and tiny on purpose; everything else is bundled.
+{%- endcomment -%}
+<script>
+  try {
+    var t = localStorage.getItem('site-theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+</script>
+
+<link rel="stylesheet" href="{% include asset.html name='main.css' fallback='css/main.css' %}">
+<script type="module" src="{% include asset.html name='main.js' fallback='js/main.js' %}" defer></script>

@@ -1,0 +1,5 @@
+{%- comment -%} Renders one project in a card grid. {%- endcomment -%}
+<li class="card">
+  <h3><a href="{{ include.project.url | relative_url }}">{{ include.project.title }}</a></h3>
+  <p>{{ include.project.description }}</p>
+</li>

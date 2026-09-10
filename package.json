@@ -1,0 +1,22 @@
+{
+  "name": "gl0bsec-github-io",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Front-end build pipeline for the Jekyll site at gl0bsec.github.io",
+  "type": "module",
+  "scripts": {
+    "build:assets": "node esbuild.config.mjs",
+    "build": "npm run build:assets && bundle exec jekyll build",
+    "watch:assets": "node esbuild.config.mjs --watch",
+    "watch:jekyll": "bundle exec jekyll serve --livereload",
+    "start": "concurrently -n assets,jekyll -c cyan,magenta \"npm:watch:assets\" \"npm:watch:jekyll\"",
+    "clean": "node -e \"const fs=require('fs');for(const p of ['assets/js','assets/css','_site','_data/manifest.json'])fs.rmSync(p,{recursive:true,force:true})\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.25.0"
+  },
+  "browserslist": [
+    "defaults and supports es6-module"
+  ]
+}

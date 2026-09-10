@@ -1,0 +1,16 @@
+---
+layout: default
+---
+{%- comment -%}
+Listing pages whose feed is right-aligned (currently just projects). Same shape
+as `page`, but on the wide wrapper so the card grid has room, with the header
+aligned to match it.
+{%- endcomment -%}
+<div class="wrap wrap--wide">
+  <header class="page-header align-end">
+    <h1>{{ page.title }}</h1>
+    {%- if page.description %}<p>{{ page.description }}</p>{% endif -%}
+  </header>
+
+  {{ content }}
+</div>

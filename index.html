@@ -1,0 +1,26 @@
+---
+layout: home
+title: gl0bsec
+description: Public Projects, Docs, and Experiments.
+---
+
+<h2 class="align-end">Projects</h2>
+
+{% assign projects = site.projects | sort: 'order' %}
+<ul class="card-grid">
+  {% for project in projects %}
+    {% include project-card.html project=project %}
+  {% endfor %}
+</ul>
+
+<h2>Recent posts</h2>
+
+<ul class="post-list">
+  {% for post in site.posts limit: 5 %}
+    {% include post-card.html post=post %}
+  {% else %}
+    <li><p>No posts yet.</p></li>
+  {% endfor %}
+</ul>
+
+<p><a href="{{ '/posts/' | relative_url }}">All posts &rarr;</a></p>

@@ -1,0 +1,70 @@
+/* Rouge token colours, driven by the --syn-* tokens so both themes work from
+ * one rule set. Class names are Rouge's (Pygments-compatible) short forms.
+ */
+
+/* Colour only. The <pre> keeps its background from base.css — a `background`
+   here would also match pre.highlight and strip it. */
+.highlight {
+  color: var(--ink);
+}
+
+/* Comments */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs, .highlight .cd,
+.highlight .cp, .highlight .cpf {
+  color: var(--syn-comment);
+  font-style: italic;
+}
+
+/* Keywords */
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn,
+.highlight .kp, .highlight .kr {
+  color: var(--syn-keyword);
+}
+
+/* Types and classes */
+.highlight .kt, .highlight .nc, .highlight .nn, .highlight .no,
+.highlight .ne, .highlight .nl {
+  color: var(--syn-type);
+}
+
+/* Functions, tags, attribute names */
+.highlight .nf, .highlight .nd, .highlight .na, .highlight .nt {
+  color: var(--syn-func);
+}
+
+/* Built-ins */
+.highlight .nb, .highlight .bp {
+  color: var(--syn-builtin);
+}
+
+/* Variables */
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi,
+.highlight .nx {
+  color: var(--syn-var);
+}
+
+/* Strings */
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc,
+.highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx,
+.highlight .sr, .highlight .ss, .highlight .dl {
+  color: var(--syn-string);
+}
+
+/* Numbers */
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh,
+.highlight .mi, .highlight .mo, .highlight .il {
+  color: var(--syn-number);
+}
+
+/* Operators and punctuation */
+.highlight .o, .highlight .ow, .highlight .p, .highlight .pi {
+  color: var(--syn-punct);
+}
+
+/* Diffs and errors */
+.highlight .gd { color: var(--syn-keyword); }
+.highlight .gi { color: var(--syn-string); }
+.highlight .gh, .highlight .gu { color: var(--syn-comment); font-weight: 600; }
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: 600; }
+.highlight .err { color: var(--syn-keyword); }

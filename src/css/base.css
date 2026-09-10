@@ -1,0 +1,111 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.2;
+  text-wrap: balance;
+  /* 1.2em above, down from 2em: prose leading, but these headings are large
+     enough that 2em left a visible gulf above them. The space below stays at
+     0.6em so a heading still binds to the text it introduces. */
+  margin: 1.2em 0 0.6em;
+}
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 400; /* Jersey 10 ships a single weight; no synthetic bolding. */
+}
+h1 { font-size: var(--step-3); }
+h2 { font-size: calc(var(--step-2) * 1.5); }
+h3 { font-size: var(--step-1); }
+
+/* A heading that opens a section shouldn't add space to the section's own. */
+:is(h1, h2, h3, h4):first-child { margin-top: 0; }
+
+p, ul, ol, blockquote, pre, table { margin: 0 0 1.25em; }
+p { text-wrap: pretty; }
+
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+img, video, canvas, svg { max-width: 100%; height: auto; display: block; }
+
+code, kbd, pre, samp { font-family: var(--font-mono); font-size: 0.9em; }
+
+code {
+  background: var(--paper-sunk);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+pre {
+  background: var(--paper-sunk);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+
+blockquote {
+  border-left: 3px solid var(--rule);
+  margin-left: 0;
+  padding-left: 1rem;
+  color: var(--ink-muted);
+}
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+table { border-collapse: collapse; width: 100%; }
+th, td { border-bottom: 1px solid var(--rule); padding: 0.5rem 0.75rem; text-align: left; }
+
+/* Visible only to screen readers until focused (the skip link). */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.skip-link:focus {
+  position: fixed;
+  inset: 0.5rem auto auto 0.5rem;
+  width: auto; height: auto;
+  clip-path: none;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius);
+  z-index: 10;
+}

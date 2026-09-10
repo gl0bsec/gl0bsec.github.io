@@ -1,0 +1,102 @@
+/* Design tokens. Re-theming the site should mostly mean editing this file.
+ *
+ * Palette is gruvbox (Pawel Zorzan / morhetz), light and dark variants.
+ * Names below are the upstream ones so they are easy to cross-reference:
+ *   light  bg0 #fbf1c7  bg0_s #f2e5bc  bg2 #d5c4a1  bg3 #bdae93  fg1 #3c3836
+ *   dark   bg0_h #1d2021  bg0 #282828  bg1 #3c3836  bg2 #504945  fg1 #ebdbb2
+ */
+
+:root {
+  color-scheme: light dark;
+
+  --font-display: "Jersey 10", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* Left as a system stack: code blocks and <ascii-globe> need real monospace
+     metrics, which Roboto cannot provide. */
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --measure: 68ch;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --radius: 0.5rem;
+
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0:  clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+  --step-1:  clamp(1.25rem, 1.15rem + 0.5vw, 1.55rem);
+  --step-2:  clamp(1.6rem, 1.4rem + 1vw, 2.2rem);
+  --step-3:  clamp(2rem, 1.6rem + 2vw, 3.1rem);
+
+  /* Deliberately outside the light/dark blocks: listing titles use one shade in
+     both themes. Gruvbox neutral blue clears 3:1 on every surface it lands on
+     (page and card, light and dark), which is AA for bold text at this size. */
+  --title-preview: #458588;
+}
+
+/* Light is the default; both explicit opt-in and system preference are honoured. */
+:root,
+:root[data-theme="light"] {
+  --paper: #fbf1c7;
+  --paper-sunk: #f2e5bc;
+  --ink: #282828;
+  --ink-muted: #504945;
+  --rule: #bdae93;
+  --accent: #05505d;
+
+  --hero-ink: #a89984;
+  --shadow-bar: 0 1px 2px rgb(60 56 54 / 12%), 0 2px 6px rgb(60 56 54 / 7%);
+
+  --syn-comment: #928374;
+  --syn-keyword: #9d0006;
+  --syn-string: #79740e;
+  --syn-number: #8f3f71;
+  --syn-func: #79740e;
+  --syn-type: #b57614;
+  --syn-builtin: #af3a03;
+  --syn-var: #076678;
+  --syn-punct: #3c3836;
+}
+
+:root[data-theme="dark"] {
+  --paper: #1d2021;
+  --paper-sunk: #282828;
+  --ink: #ebdbb2;
+  --ink-muted: #a89984;
+  --rule: #3c3836;
+  --accent: #8ec07c;
+
+  --hero-ink: #45403d;
+  --shadow-bar: 0 1px 2px rgb(0 0 0 / 50%), 0 2px 10px rgb(0 0 0 / 35%);
+
+  --syn-comment: #928374;
+  --syn-keyword: #fb4934;
+  --syn-string: #b8bb26;
+  --syn-number: #d3869b;
+  --syn-func: #b8bb26;
+  --syn-type: #fabd2f;
+  --syn-builtin: #fe8019;
+  --syn-var: #83a598;
+  --syn-punct: #bdae93;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --paper: #1d2021;
+    --paper-sunk: #282828;
+    --ink: #ebdbb2;
+    --ink-muted: #a89984;
+    --rule: #3c3836;
+    --accent: #8ec07c;
+
+    --hero-ink: #45403d;
+    --shadow-bar: 0 1px 2px rgb(0 0 0 / 50%), 0 2px 10px rgb(0 0 0 / 35%);
+
+    --syn-comment: #928374;
+    --syn-keyword: #fb4934;
+    --syn-string: #b8bb26;
+    --syn-number: #d3869b;
+    --syn-func: #b8bb26;
+    --syn-type: #fabd2f;
+    --syn-builtin: #fe8019;
+    --syn-var: #83a598;
+    --syn-punct: #bdae93;
+  }
+}

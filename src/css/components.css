@@ -1,0 +1,171 @@
+/* --- Hero ------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+
+  /* start, not center. With the title at the top of the content box, its
+     position is set by the top padding alone and no longer depends on the
+     hero's height — so resizing the globe stops moving the title, and the two
+     can be tuned independently. */
+  align-items: start;
+
+  /* min-height sizes the globe, which fills this box plus --globe-bleed on
+     each side: 34.2rem + 8px = 555px. That is 10% down from the 616px the
+     1.5x step produced. */
+  --globe-bleed: 4px;
+  min-height: min(72vh, 34.2rem);
+
+  /* 7.5rem puts the title 27.7px below the bar, where it sat before the globe
+     grew (the -1.2em transform on .hero__title lifts it 92.3px from here). */
+  padding-block: clamp(1.5rem, 9.5vw, 7.5rem) clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 0;
+}
+
+ascii-globe {
+  position: absolute;
+  /* Bleeding past the hero lets the globe grow without changing the hero's
+     height, which would otherwise shift the centred title and every gap below
+     it. Growing the globe is now this one number. */
+  inset: calc(-1 * var(--globe-bleed, 0px));
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--hero-ink);
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Reset the block styling base.css gives <pre>. */
+ascii-globe pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  overflow: visible;
+  font-family: var(--font-mono);
+  line-height: 1;
+  white-space: pre;
+}
+
+.hero__title {
+  margin: 0;
+  /* 1.5x the h1 default; --step-3 is fluid, so scale the whole curve. */
+  font-size: calc((var(--step-3) * 1.5 + 1px) * 1.02);
+  /* Holds the tagline to two or three lines instead of one long measure. */
+  max-width: 22ch;
+  /* Sits one line above centre; h1 line-height is 1.2, so 1.2em is one line.
+     A transform rather than a margin so the globe's centring is unaffected. */
+  transform: translateY(-1.2em);
+}
+
+/* --- Cards ------------------------------------------------------------ */
+
+/* Wrapping flex rather than grid: grid tracks are shared by every row, so a
+   partial last row can only align with the columns above it. Flex lets the
+   trailing row pack toward the right. */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.card {
+  /* One knob for the whole card: padding, inner spacing and type all scale. */
+  --card-scale: 0.95;
+  /* Sized so three fit across the content column: 3 x 21.5rem + 2 x 1.25rem of
+     gap = 67rem, against the column's 68.75rem cap. The 1.75rem of slack keeps
+     the row packed right and leaves room for rounding. min() lets the card fill
+     the row once the viewport is narrower than one card. */
+  flex: 0 1 min(100%, 21.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: calc(0.4rem * var(--card-scale));
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--paper-sunk);
+  /* Split so the two axes move independently. Card height is block padding plus
+     a text block fixed by its content, so 5% off the height has to come out of
+     the padding: 1.1875rem -> 1rem each side does it. */
+  padding-block: 1rem;
+  padding-inline: calc(1.25rem * var(--card-scale));
+}
+.card h3 { margin: 0; font-size: calc(var(--step-1) * var(--card-scale)); }
+.card h3 a { color: var(--title-preview); }
+.card p { margin: 0; color: var(--ink-muted); font-size: calc(var(--step--1) * var(--card-scale)); }
+.card a { text-decoration: none; }
+.card a::after { content: ""; position: absolute; inset: 0; }
+.card { position: relative; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0;
+  font-size: var(--step--1);
+}
+.tags li {
+  border: 1px solid var(--rule);
+  /* Softened corners, still rectangular rather than a pill. Half the site
+     radius, since a chip is much shorter than a card. */
+  border-radius: calc(var(--radius) / 2);
+  padding: 0.1em 0.55em;
+  color: var(--ink-muted);
+  background: var(--paper);
+}
+
+/* --- Post / project lists --------------------------------------------- */
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+.post-list h3 { margin: 0 0 0.2rem; font-size: var(--step-1); }
+.post-list h3 a { color: var(--title-preview); }
+.post-list a { text-decoration: none; }
+.post-list a:hover { text-decoration: underline; }
+.post-list p { margin: 0.2rem 0 0; color: var(--ink-muted); }
+
+.meta {
+  display: block;
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+}
+
+.page-header { margin-bottom: 2rem; }
+
+/* Long-form pages — posts and projects, both of which carry .article-page.
+   Their h1 is --step-3, which the global h2 (1.5x --step-2) outgrows at every
+   viewport; 0.85 of the same token keeps section headings under the page title
+   no matter how the scale is retuned. The homepage is unaffected: its h1 is
+   .hero__title, already far larger than any h2. */
+.article-page h2 { font-size: calc(var(--step-3) * 0.85); }
+
+/* Feed sections and their headings sit against the right edge. */
+.align-end { text-align: end; }
+
+/* A heading that follows a feed sits closer than the 2em prose headings use —
+   the feed's own items already provide separation. In em, so it tracks the
+   heading's size; the multiplier is re-solved whenever h2 changes to hold the
+   gap at the 45.8px it was tuned to. h2 is 52.8px, hence 0.867em. */
+.card-grid + h2,
+.post-list + h2 {
+  margin-top: 0.867em;
+}
+/* --step-0, not --step-1. Jersey 10 sits low in its em box, so an h1 at
+   --step-3 shows only ~30px of glyph; a --step-1 description showed ~18px and
+   read as competing with it rather than subordinate. The muted colour is what
+   separates this from the body copy that follows, not its size. */
+.page-header p { color: var(--ink-muted); font-size: var(--step-0); margin-bottom: 0; }

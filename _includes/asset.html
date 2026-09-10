@@ -1,0 +1,14 @@
+{%- comment -%}
+Resolves a logical asset name to its built, content-hashed URL.
+
+  {% include asset.html name="main.js" %}
+
+The map comes from _data/manifest.json, written by esbuild. If the manifest is
+missing the build has not run yet, so fall back to the unhashed path.
+{%- endcomment -%}
+{%- assign built = site.data.manifest[include.name] -%}
+{%- if built -%}
+{{ built | relative_url }}
+{%- else -%}
+{{ include.fallback | default: include.name | prepend: '/assets/' | relative_url }}
+{%- endif -%}
