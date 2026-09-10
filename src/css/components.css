@@ -17,9 +17,13 @@
   --globe-bleed: 4px;
   min-height: min(72vh, 34.2rem);
 
-  /* 7.5rem puts the title 27.7px below the bar, where it sat before the globe
-     grew (the -1.2em transform on .hero__title lifts it 92.3px from here). */
-  padding-block: clamp(1.5rem, 9.5vw, 7.5rem) clamp(1.5rem, 4vw, 3rem);
+  /* Top padding has to clear the -1.2em lift on .hero__title, which scales with
+     --step-3, not with the viewport — a bare vw fell behind it on narrow screens
+     and the title rode up into the header. Tracking --step-3 instead holds the
+     title 27.7px below the bar at every width, where it sat before the globe
+     grew. The 1.836 is that lift resolved against --step-3:
+     1.2 (line) x 1.02 (title nudge) x 1.5 (title is 1.5x the h1 step). */
+  padding-block: calc(var(--step-3) * 1.836 + 29px) clamp(1.5rem, 4vw, 3rem);
   margin-bottom: 0;
 }
 
