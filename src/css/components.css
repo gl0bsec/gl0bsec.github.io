@@ -17,13 +17,14 @@
   --globe-bleed: 4px;
   min-height: min(72vh, 34.2rem);
 
-  /* Top padding has to clear the -1.2em lift on .hero__title, which scales with
-     --step-3, not with the viewport — a bare vw fell behind it on narrow screens
-     and the title rode up into the header. Tracking --step-3 instead holds the
-     title 27.7px below the bar at every width, where it sat before the globe
-     grew. The 1.836 is that lift resolved against --step-3:
-     1.2 (line) x 1.02 (title nudge) x 1.5 (title is 1.5x the h1 step). */
-  padding-block: calc(var(--step-3) * 1.836 + 29px) clamp(1.5rem, 4vw, 3rem);
+  /* The title used to be pushed down by this padding and pulled back up by a
+     -1.2em transform on .hero__title. Those two scale off different things —
+     the padding off the viewport, the transform off the title's font-size — so
+     below ~1300px the pull outgrew the push and the title rode up into the
+     header. With the transform gone this is the whole story: the title's line
+     box starts exactly here, at every width. 1.75rem is where desktop already
+     sat (120.1px of padding less the 92.3px it was lifted). */
+  padding-block: 1.75rem clamp(1.5rem, 4vw, 3rem);
   margin-bottom: 0;
 }
 
@@ -61,9 +62,6 @@ ascii-globe pre {
   font-size: calc((var(--step-3) * 1.5 + 1px) * 1.02);
   /* Holds the tagline to two or three lines instead of one long measure. */
   max-width: 22ch;
-  /* Sits one line above centre; h1 line-height is 1.2, so 1.2em is one line.
-     A transform rather than a margin so the globe's centring is unaffected. */
-  transform: translateY(-1.2em);
 }
 
 /* --- Cards ------------------------------------------------------------ */
