@@ -16,7 +16,7 @@ To do so, it abstracts the data ingest and run-time configuration process to a s
 
 **How it works:**  
 
-When mobius package is shared with another user, the recipient can author a **binding** that maps the the schema of their dataset (or sets) onto the package's expectations and run it. The engine absorbs the overhead costs of installation and system configuration by assembling a purpose-built virtual environment to the package's own pinned specification.
+When Möbius package is shared with another user, the recipient can author a **binding** that maps the the schema of their dataset (or sets) onto the package's expectations and run it. The engine absorbs the overhead costs of installation and system configuration by assembling a purpose-built virtual environment to the package's own pinned specification.
 
 Workflow results are emitted into a **result bundle**, a single DuckDB file with a generated [Frictionless](https://frictionlessdata.io/) `datapackage.json` containing each result table's inferred schema and the relations between them beside it. Result bundles themselves are valid Möbius inputs, enabling the chaining of workflows and applications.
 
