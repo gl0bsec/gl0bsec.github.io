@@ -144,7 +144,20 @@ ascii-globe pre {
   color: var(--ink-muted);
 }
 
-.page-header { margin-bottom: 2rem; }
+/* Body copy carries no top margin (base.css), so this alone is the gap between
+   the header block and the article. Tighter than the 2rem it started at: the
+   muted description and tag chips already read as a separate band. */
+.page-header { margin-bottom: 1.25rem; }
+
+/* 0.25em, down from the global 0.6em. Jersey 10 sits low in its em box, so the
+   title already carries empty space beneath the glyphs; the inherited margin
+   stacked on top of that and let the description drift away from the heading
+   it belongs to. In em so it tracks --step-3. */
+.page-header h1 { margin-bottom: 0.25em; }
+
+/* More air than the 0.25rem chips use in a card — under a description the tags
+   are a distinct row, not a continuation of the sentence above them. */
+.page-header .tags { margin-top: 0.75rem; }
 
 /* Long-form pages — posts and projects, both of which carry .article-page.
    Their h1 is --step-3, which the global h2 (1.5x --step-2) outgrows at every
@@ -167,5 +180,6 @@ ascii-globe pre {
 /* --step-0, not --step-1. Jersey 10 sits low in its em box, so an h1 at
    --step-3 shows only ~30px of glyph; a --step-1 description showed ~18px and
    read as competing with it rather than subordinate. The muted colour is what
-   separates this from the body copy that follows, not its size. */
-.page-header p { color: var(--ink-muted); font-size: var(--step-0); margin-bottom: 0; }
+   separates this from the body copy that follows, not its size.
+   The 0.96 shaves 4% off to settle it just under body copy. */
+.page-header p { color: var(--ink-muted); font-size: calc(var(--step-0) * 0.96); margin-bottom: 0; }
