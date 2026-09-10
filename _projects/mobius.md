@@ -8,11 +8,11 @@ order: 99
 
 ![Möbius banner]({{ '/assets/images/banner2x.png' | relative_url }})
 
-Möbius is an **execution engine and development framework** designed for **humans and agents** turn turning **single-use** analytics pipelines and applications into **auditible, re-usable ones**.
+Möbius is an **execution engine and development framework** designed for **humans and agents** to turn  **single-use** data analysis pipelines and applications into **auditible, re-usable ones**.
 
-The engine **packages** workflows, applications and their associated runtime specifications into a singlular sharable artifacts, designed with stability and reproducability in mind .
+To do so, the engine **packages** workflows, applications and their associated runtime specifications into singlular sharable artifacts .
 
-To do so, it abstracts the data ingest and run-time configuration process to a series of plaintext-declared parameters and virtual environments. As a result, it elimiates installation overheads and  JS framework bloat, while improving sharability, stability and result re-producability .  
+It also it abstracts the data ingest and run-time configuration processes to a series of plaintext-declared parameters and virtual environments. As a result, it elimiates installation overheads and  JS framework bloat, while improving sharability, stability and output consistency.  
 
 ## How it works: 
 
