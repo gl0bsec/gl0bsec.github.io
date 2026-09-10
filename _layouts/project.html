@@ -16,8 +16,8 @@ layout: default
 
   {%- if page.repo or page.link -%}
     <hr>
-    <p>
-      {%- if page.repo %}<a href="{{ page.repo }}">Source</a>{% endif -%}
+    <p class="project-links">
+      {%- if page.repo %}<a href="{{ page.repo }}">Find it here</a>{% endif -%}
       {%- if page.repo and page.link %} &middot; {% endif -%}
       {%- if page.link %}<a href="{{ page.link }}">Live</a>{% endif -%}
     </p>

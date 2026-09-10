@@ -159,6 +159,12 @@ ascii-globe pre {
    are a distinct row, not a continuation of the sentence above them. */
 .page-header .tags { margin-top: 0.75rem; }
 
+/* The repo / live links closing a project page. Body size — weight alone is
+   what lifts the page's one call to action above the copy around it. */
+.project-links {
+  font-weight: 700;
+}
+
 /* Long-form pages — posts and projects, both of which carry .article-page.
    Their h1 is --step-3, which the global h2 (1.5x --step-2) outgrows at every
    viewport; 0.85 of the same token keeps section headings under the page title
